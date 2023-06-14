@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="BIG5">
+	<title>Helper Profile Submission</title>
+
+	<link rel="stylesheet" href="css/colors.css">
+	<!-- <link rel="stylesheet" href="css/submit-profile.css"> -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/project.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+		  	$("#nav-placeholder").load("nav.html");
+		});
+		
+		function display(){
+			var file = document.getElementById("img").value
+			if(file != ""){
+				document.getElementById("imgName").innerHTML = file;
+				console.log(file);
+			}
+		}
+		
+		$('#inputGroupFile02').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+        
+		
+		function checkSubmitSuccess() {
+			return true; //need to be modified
+		}
+		
+		$(document).ready(function() {
+			var url = window.location.protocol + "//" + window.location.host;
+			
+	    	//Buttons
+	        $("#createProfile").click(function(){
+	        	if (checkSubmitSuccess() == true) {
+					//need to upload to bc
+					
+					localStorage.setItem("cur-page", "profile");
+	        		window.location.href = "bc-success.html";
+	        		return false;
+				}
+			});
+	       
+	        $(".cancel").click(function() {
+	        	window.location.href = "HelperProfilePage.html";
+	        	window.location.href = "account.html";
+		    });
+	       
+	    });
+	</script>
+	<style>
+		.page-wrapper {
+    min-height: 100vh;
+}
+
+.bg-gra-02 {
+	background: #e7f0fd;
+	/* background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%); */
+}
+
+.p-b-100 {
+    padding-bottom: 100px;
+}
+.p-t-130 {
+    padding-top: 130px;
+}
+
+.container {
+	/* max-width: 680px; */
+	margin: 0 auto;
+	/* margin: 5px 20px; */
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+	padding: 57px 65px;
+	padding-bottom: 65px;
+}
+
+.title {
+    font-size: 24px;
+    color: #525252;
+    font-weight: 400;
+}
+		
+.reminder {
+	font-size: 16px;
+	color: red;
+	margin-bottom: 40px;
+}
+
+sup {
+	color: red;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	-moz-box-pack: justify;
+	justify-content: space-between;
+}
+
+.col-2 {
+	/* width: calc((100% - 30px) / 2); */
+	max-width: 100%;
+	flex: calc((100% - 30px) / 2);
+}
+
+.form-group {
+	/* margin: 10px 0px; */
+	position: relative;
+	margin-bottom: 22px;	
+}
+
+.label {
+    font-size: 16px;
+    color: #555;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 5px;
+}	
+
+.form-control {
+	/* width: 300px;
+	display: inline-block; */
+	line-height: 50px;
+	background: #fafafa;
+	box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+	border-radius: 5px;
+	padding: 0 20px;
+	font-size: 16px;
+	color: #666;
+	transition: all 0.4s ease;
+}
+
+.p-t-10 {
+    padding-top: 10px;
+}
+
+.radio-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    user-select: none;
+}
+
+.m-r-45 {
+    margin-right: 45px;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.radio-container input:checked ~ .checkmark {
+    background-color: #e5e5e5;
+}
+
+.checkmark {
+    position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+		
+		.form-control-file {
+			width: unset;
+			display: inline-block;
+		}
+		
+		.verify {
+			margin-bottom: 4px;
+			margin-top: 10px;
+		}
+
+		.submit {
+			margin-top: 10px;
+		}
+
+		.form-control-file {
+			margin-top: 10px;
+		}
+		
+		#feedbackGp {
+			border-top: 1px solid gray;
+		}
+		
+		#firstNameGp, #lastNameGp {
+			/* display: inline-block; */
+		}
+		
+		#lastNameGp {
+			/* margin-left: 50px; */
+		}
+		
+		.icon {
+			width: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="page-wrapper purple-gd p-t-130 p-b-100">
+		<!--Navigation bar-->
+		<div id="nav-placeholder"></div>
+		
+		<div class="container">
+			<h2 class="title">Helper Profile Submission</h2>
+			<h4 class="reminder"><sup>&#8727;</sup>Required</h4>
+
+			<form method="POST">
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="firstNameGp">
+							<label class="label" for="firstName">First name<sup>&#8727;</sup></label><br>
+							<input type="firstName" class="form-control" id="firstName">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="lastNameGp">
+							<label class="label" for="lastName">Last name<sup>&#8727;</sup></label><br>
+							<input type="lastName" class="form-control" id="lastName">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="nicknameGp">
+							<label class="label" for="nickname">Nick name</label><br>
+							<input type="text" class="form-control" id="nickname">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="idGp">
+							<label class="label" for="idNo">ID card number (read-only)</label><br>
+							<input type="text" class="form-control" id="idNo" disabled>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="birthGp">
+							<label class="label" for="birth">Date of birth<sup>&#8727;</sup></label><br>
+							<input type="birth" class="form-control" id="birth">
+							<!-- <div class="input-group-icon">
+								<input type="birth" class="form-control" id="birth" name="birth">
+								<i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+							</div> -->
+						</div>
+					</div>
+					<div class="col-2">
+						<div class='form-group' id="genderGp">
+							<label class="label" for="gender">Gender<sup>&#8727;</sup></label><br>
+							<!-- <select class="form-control" id="gender">
+								<option value="null"></option>
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+							</select> -->
+							<div class="p-t-10">
+								<label class="radio-container m-r-45">Male
+									<input class="form-control" id="gender" type="radio" checked="checked" name="gender">
+									<span class="checkmark"></span>
+								</label>
+								<label class="radio-container">Female
+									<input class="form-control" id="gender" type="radio" name="gender">
+									<span class="checkmark"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class='form-group' id="nationGp">
+							<div for="nationality">Nationality<sup>&#8727;</sup></div>
+							<select class="selectpicker form-control" id="nationality">
+								<option value="null"></option>
+								<option value="indonesia">Indonesia</option>
+								<option value="philippines">Philippines</option>
+								<option value="thailand">Thailand</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class='form-group' id="langGp">
+							<div for="language">Language</div>
+							<select class="selectpicker form-control" id="lang">
+								<option value="null"></option>
+								<option value="chin">Chinese</option>
+								<option value="eng">English</option>
+								<option value="fili">Filipino</option>
+								<option value="indo">Indonesian</option>
+								<option value="thai">Thai</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="emailGp">
+							<label for="email">Email address</label><br>
+							<input type="email" class="form-control" id="email">
+							<button class="btn btn-outline-dark verify">Verify</button>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="phoneGp">
+							<label for="phone">Phone number<sup>&#8727;</sup></label><br>
+							<input type="phone" class="form-control" id="phone">
+							<button type="button" class="btn btn-outline-dark verify">Verify</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-2">
+						<div class='form-group' id="imgGp">
+							<div for="img">Portrait photo (an image with your face clearly displayed):</div>
+							<label for="exampleFormControlFile1">Example file input</label>
+							<input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/*">
+							<!--  label class=" file-upload btn btn-outline-dark">
+							<span id="imgName">Choose</span>
+							<input id="img" type="file" accept="image/*" hidden onclick="display()">
+							</label-->
+							<!-- <input class="btn btn-outline-dark" type="submit">	 -->
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="mediaGp">
+							<label for="media">Social network Pages</label><br>
+							<img class="icon" src="image/fb_icon.png" />
+							<img class="icon" src="image/twitter_icon.png" />
+						</div>	
+					</div>
+				</div>
+				
+				<div class="form-group" id="intorGp">
+					<label for="intro">Self-introduction<sup>&#8727;</sup></label><br>
+					<textarea class="form-control" id="intro" rows="3"></textarea>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="certGp">
+							<label for="cert">Certificate</label><br>
+							<input type="cert" class="form-control" id="cert">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="skillGp">
+						<label for="skillSet">Skill set</label>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check1">
+							<label class="form-check-label" for="check1">
+								Child care
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check2">
+							<label class="form-check-label" for="check2">
+								Cooking
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check3">
+							<label class="form-check-label" for="check3">
+								Elder Care
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check4">
+							<label class="form-check-label" for="check4">
+								Housekeeping
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check5">
+							<label class="form-check-label" for="check5">
+								Pet Care
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check6">
+							<label class="form-check-label" for="check6">
+								Professional Driver
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="check7">
+							<label class="form-check-label" for="check7">
+								Teen Care
+							</label>
+						</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-2">
+						<div class='form-group' id="availGp">
+							<div for="availability">Availability<sup>&#8727;</sup></div>
+							<select class="selectpicker form-control" id="availability">
+								<option value="null"></option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group" id="feedbackGp">
+					<label for="feedback">Feedback from previous employers (read-only)</label><br>
+					<div>Period of employment: </div>
+					<div>Employer name: </div>
+					<div>Email address: </div>
+					<div>Comment: </div>
+					<div>Rating of multiple dimensions: </div>
+					<div>Reference letter (in pdf): </div>
+				</div>
+			</form>
+			<button class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Create/Modify the profile</button>
+			<button class="btn btn-outline-dark cancel">Cancel</button>
+			
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Submitting the form</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+							<p>Be careful. Once you submit the form, 
+							the record will be stored in the blockchain database in a permanent way.
+							If you want to "hide" a particular field in the future, you can choose to
+							empty the field. However, it is still discoverable by viewing the historical version.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal" id="createProfile">OK</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

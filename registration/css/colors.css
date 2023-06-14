@@ -1,0 +1,18 @@
+.purple-0 {color: #c5bef9;}
+.purple-1 {color: #bdb4ff;}
+.purple-2 {color: #b7adff;}
+.purple-3 {color: #b4aaf9;}
+.purple-4 {color: #ada2ff;}
+
+.purple-bg-0 {background: #c5bef9;}
+.purple-bg-1 {background: #bdb4ff;}
+.purple-bg-2 {background: #b7adff;}
+.purple-bg-3 {background: #b4aaf9;}
+.purple-bg-4 {background: #ada2ff;}
+
+.purple-gd {
+    background: linear-gradient(to bottom, #c5bef9 0%, #ada2ff 100%);
+}
+
+.white {color: #fff;}
+.black {color: #000;}

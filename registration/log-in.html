@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<meta charset="BIG5">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/project.css">
+	<link rel="stylesheet" href="css/colors.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+		  	$("#nav-placeholder").load("nav.html");
+		});
+	</script>
+	<script>
+		var cur_btn = "null";
+		
+		//Change color of the buttons (ie employer and helper)
+		function btnclick(btn) {
+			if (cur_btn != btn) {
+				$("#" + btn).css("background-color", "rgba(108, 117, 125,1)"); //bg: grey
+				$("#" + btn).css("color", "rgba(255, 255, 255,1)"); //word: white
+				$("#" + cur_btn).css("background-color", "rgba(108, 117, 125,0)"); //bg: white
+				$("#" + cur_btn).css("color", "rgba(108, 117, 125,1)"); //word: grey
+				cur_btn = btn;
+			}
+		}
+		
+		//Change button pos according to the screen size
+		function modifyBtnPos() {
+			var width_error = 26;
+			var helper_btnWidth = $("#helper").width() + width_error;
+			var employer_btnWidth = $("#employer").width() + width_error;
+
+			var helper_margin_left = $("#helper").css("margin-left");
+			var helper_margin_left_mod = parseInt(helper_margin_left.slice(0, -2));
+
+			var box_width = $(".box").width();
+
+			if (box_width <= (employer_btnWidth + helper_btnWidth)) {
+				$("#employer").css("float", "none");
+				$("#employer").css("margin-right", "0px");
+				var new_employer_left = helper_margin_left_mod + helper_btnWidth + 10;
+				$("#employer").css("margin-left", "5px");
+
+			}
+			else {
+				$("#employer").css("margin-left", "0px");
+				$("#employer").css("float", "right");
+				$("#employer").css("margin-right", helper_margin_left);
+			}
+		}
+		
+		function changeLineWidth() {
+			var box_width = $(".box").width();
+			var line_width = $("#line1").attr("x2") - $("#line1").attr("x1");
+
+			$("#line1").attr("x2", box_width * 0.75);
+
+		}
+		
+		function checkLogIn(){
+			//need to be modified
+			return true;
+		}
+		
+		$(document).ready(function() {
+			var url = window.location.protocol + "//" + window.location.host;
+			
+	        $("#login").click(function(){
+	        	if (checkLogIn() == true){
+	        		localStorage.setItem("user", cur_btn);
+	        		//console.log(localStorage.getItem("identity"));
+		        	window.location = url + "/blockchain/views/HomePage.html";
+		        	return false;
+	        	}
+	        	
+			});
+			
+			//change style according to the screen size
+			modifyBtnPos();
+			changeLineWidth();
+						
+		});
+		
+		$(window).on('resize', function () {
+			modifyBtnPos();
+			changeLineWidth();
+
+		});
+
+	</script>
+
+	<style>
+		body {
+			font-size: 14px;
+			line-height: 1.8;
+			color: #222;
+			background: linear-gradient(to bottom, #c5bef9 0%, #ada2ff 100%);
+			font-weight: 600;
+			margin: 0px;
+		}
+
+		.main {
+			padding: 150px 0px
+			/* position: relative; */
+		}
+
+		h1 {
+			position: absolute;
+			font-weight: 700;
+			font-size: 174px;
+			font-weight: bold;
+			color: #fff;
+			opacity: 0.5;
+			right: 105px;
+			top: 5px;
+			/* top: -149px; */
+			z-index: 9;
+		}
+
+		h2 {
+			line-height: 2.5;
+			margin: 0;
+				margin-bottom: 0px;
+			padding: 0;
+			font-weight: bold;
+			color: #222;
+			font-size: 24px;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.box {
+			box-sizing: border-box;
+			/* border: 2px solid black; */
+			/* width: 30vw;
+			height: 50vh; */
+			width: 520px;
+			background: #fff;
+			margin: 0 auto;
+			/* background: -moz-linear-gradient(top, #7579ff, #b224ef); */
+			border-radius: 10px;
+			/* overflow: hidden; */
+			padding: 55px 55px 37px 55px;
+			box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.05);
+		}
+
+		.box p {
+			margin: 10px 12px 0px 12px;
+			font-size: 30px;
+			color: #fff;
+			text-align: center;
+			text-transform: uppercase;
+			display: block;
+		}
+
+		/* .box div {
+			margin: 15px 12px;
+		} */
+
+		.btn-container {
+			/* margin-top: 15vh; */
+			margin: 15px 40px;
+			/* margin: 0 -10px; */
+			margin-bottom: 40px;
+		}
+
+		.btn btn-outline-secondary {
+			display: block;
+			border: 1px solid #66BBFF;
+			border-radius: 6px;
+			text-decoration: none;
+			text-align: center;
+			color: white !important;
+			width: 15vh;
+			height: 6vh;
+			/* margin: 18px auto; */
+			line-height: 5.3vh;
+			background-color: #66BBFF;
+		}
+
+			.button:hover {
+				background-color: white;
+				color: #66BBFF !important;
+			}
+
+			.button:active {
+				background: #66BBFF;
+				color: white !important;
+				-webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+				-moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+				box-shadow: inset 0px 0px 5px #c1c1c1;
+				outline: none;
+			}
+
+		#helper {
+			/* float: none; */
+			display: inline-block;
+			/* margin-left: 35vw; */
+		}
+
+		#employer {
+			/* float: none; */
+			display: inline-block;
+			/* margin-right: 35vw; */
+		}
+
+		.form-group label {
+			left: 28px;
+			top: 50%;
+			font-weight: 600;
+			color: #888;
+			font-size: 14px;
+		}
+
+		input {
+			border: solid 2px #ebebeb;
+			box-sizing: border-box;
+			width: 100%;
+			font-weight: 700;
+			font-size: 14px;
+			padding: 16px 30px 16px 140px;
+		}
+
+		#idNo {
+			border-radius: 5px;
+		}
+
+		#psw {
+			border-radius: 5px;
+		}
+
+		.submit {
+			background: #1da0f2;
+			color: #FFF;
+			border: none;
+			padding: 15px 20px;
+			font-size: 13px;
+			font-weight: 600;
+			box-sizing: border-box;
+			width: 100%;
+			border-radius: 5px;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="main">
+		<h1>/LOGIN</h1>
+
+		<div class="box">
+			<!--Navigation bar-->
+			<div id="nav-placeholder"></div>
+			
+			<div class="login-content">
+				<form class="login-form" method="POST">
+					<h2 class="form-title"> What type of user are you?</h2>
+
+					<div class="btn-container">
+						<button type="button" class="btn btn-outline-secondary" name="btn" id="helper" value="helper" onclick="return btnclick('helper')">I am a helper</button>
+						<button type="button" class="btn btn-outline-secondary" name="btn" id="employer" value="employer" onclick="return btnclick('employer')">I am an employer</button>
+					</div>
+
+					<div class="form-group" id="gp1">
+						<label for="idNo">ID card number</label>
+						<input type="text" class="form-control" id="idNo">
+					</div>
+					<div class="form-group" id="gp2">
+						<label for="psw">Password</label>
+						<input type="password" class="form-control" id="psw">
+					</div>
+					<div class="form-group" id="gp3">
+						<input id="login" class="submit" type="submit" name="login" value="Log In">
+						<!-- <a type="submit" class="button" id="login" href="">Login</a> -->
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

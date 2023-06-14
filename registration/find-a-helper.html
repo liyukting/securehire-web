@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="BIG5">
+    <title>Domestic Helper Search Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/project.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+		  	$("#nav-placeholder").load("nav.html");
+		});
+	</script>
+    <style>
+        .box {
+            border-right: 1px solid black;
+            width: 250px;
+            height: 90vh;
+        }
+
+        #form1 {
+            padding: 10px 15px;
+        }
+
+      
+        #gp1 {
+            width: 200px;
+        }
+        #gp2 {
+            width: 150px;
+        }
+
+        .btn {
+            width: 100px;
+            margin: 40vh 60px 0vh;
+        }
+        
+    </style>
+</head>
+<body>
+	
+	<!--Navigation bar-->
+	<div id="nav-placeholder"></div>
+	
+    <div class="box">
+        <form id="form1">
+            <div class="form-group" id="gp1">
+                <label for="keyword">Keywords</label><br>
+                <input type="text" class="form-control" id="keyword" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group" id="gp2">
+                <label for="nationality">Nationality</label>
+                <select class="form-control" id="nationality">
+                    <option value="null">Choose</option>
+                    <option value="indonesia">Indonesia</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="thailand">Thailand</option>
+                </select>
+            </div>
+            <button class="btn btn-outline-secondary">Go</button>
+        </form>
+    </div>
+
+</body>
+</html>

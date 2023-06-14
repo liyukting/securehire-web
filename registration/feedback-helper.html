@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="BIG5">
+	<title>Helper Feedback Page</title>
+	
+	<link rel="stylesheet" href="css/colors.css">
+	<!-- <link rel="stylesheet" href="css/feedback-helper.css"> -->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/project.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+			//Navigation bar
+			$(function(){
+				$("#nav-placeholder").load("nav.html");
+			});
+			
+			$(document).ready(function() {
+				var url = window.location.protocol + "//" + window.location.host;
+				
+				//Buttons
+				$("#createFeedback").click(function(){
+					localStorage.setItem("cur-page", "feedback");
+					window.location.href = "bc-success.html";
+					return false;
+				});
+			
+				$(".cancel").click(function() {
+					//window.location.href = "HelperProfilePage.html";
+					window.location.href = "account.html";
+				});
+			
+			});
+	</script>
+	
+	<style>
+		.page-wrapper {
+    min-height: 100vh;
+}
+
+.p-b-100 {
+    padding-bottom: 100px;
+}
+.p-t-130 {
+    padding-top: 130px;
+}
+
+.container {
+	/* max-width: 680px; */
+	margin: 0 auto;
+	/* margin: 5px 20px; */
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+	padding: 57px 65px;
+	padding-bottom: 65px;
+}
+
+.title {
+    font-size: 24px;
+    color: #525252;
+    font-weight: 400;
+}
+		
+.reminder {
+	font-size: 16px;
+	color: red;
+	margin-bottom: 40px;
+}
+
+sup {
+	color: red;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	-moz-box-pack: justify;
+	justify-content: space-between;
+}
+
+.col-2 {
+	/* width: calc((100% - 30px) / 2); */
+	max-width: 100%;
+	flex: calc((100% - 30px) / 2);
+}
+
+.form-group {
+	/* margin: 10px 0px; */
+	position: relative;
+	margin-bottom: 22px;	
+}
+
+.label {
+    font-size: 16px;
+    color: #555;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 5px;
+}	
+
+.form-control {
+	/* width: 300px;
+	display: inline-block; */
+	line-height: 50px;
+	background: #fafafa;
+	box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+	border-radius: 5px;
+	padding: 0 20px;
+	font-size: 16px;
+	color: #666;
+	transition: all 0.4s ease;
+}
+
+#fromPeriod, #toPeriod {
+    width: calc((100% - 30px) / 2);
+}
+	</style>
+	
+</head>
+<body>
+	<div class="page-wrapper purple-gd p-t-130 p-b-100">
+		<!--Navigation bar-->
+		<div id="nav-placeholder"></div>
+		
+		<div class="container">
+			<h2 class="title">Helper Feedback Form</h2>
+
+			<form method="POST">
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="idNoGp">
+							<label for="idNo">ID card number of the employer you worked for from this platform</label><br>
+							<input type="idNo" class="form-control" id="idNo">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="fullNameGp">
+							<label for="fullName">Your full name</label><br>
+							<input type="fullName" class="form-control" id="fullName">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="periodGp">
+							<label for="period">Employment Period</label><br>
+							<label for="fromPeriod">From</label>
+							<input type="period" class="form-control" id="fromPeriod">
+							<label for="toPeriod">To</label>
+							<input type="period" class="form-control" id="toPeriod">
+						</div>
+					</div>
+
+					<div class="col-2">
+						<div class="form-group" id="dutyGp">
+							<label for="dutySet">Duty</label>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check1">
+								<label class="form-check-label" for="check1">
+									Child care
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check2">
+								<label class="form-check-label" for="check2">
+									Cooking
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check3">
+								<label class="form-check-label" for="check3">
+									Elder Care
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check4">
+								<label class="form-check-label" for="check4">
+									Housekeeping
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check5">
+								<label class="form-check-label" for="check5">
+									Pet Care
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check6">
+								<label class="form-check-label" for="check6">
+									Professional Driver
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="check7">
+								<label class="form-check-label" for="check7">
+									Teen Care
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- <div class="row"> -->
+					<div class="form-group" id="commentGp">
+						<label for="comment">Comments</label><br>
+						<textarea class="form-control" id="comment" rows="3"></textarea>
+					</div>
+				<!-- </div> -->
+
+				<div class="row">
+					<div class="col-2">
+						<div class="form-group" id="ratingGp">
+							<label for="rating">Rating (0 to 5)</label><br>
+							<input type="rating" class="form-control" id="rating">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-group" id="emailGp">
+							<label for="email">Email address</label><br>
+							<input type="email" class="form-control" id="email">
+						</div>
+					</div>
+				</div>
+				
+			</form>
+			<button class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Create/Modify the feedback</button>
+			<button class="btn btn-outline-dark cancel" >Cancel</button>
+			
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Submitting the form</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+							<p>Be careful. Once you submit the form, 
+							the record will be stored in the blockchain database in a permanent way.
+							If you want to "hide" a particular field in the future, you can choose to
+							empty the field. However, it is still discoverable by viewing the historical version.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal" id="createFeedback">OK</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+</body>
+</html>

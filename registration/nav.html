@@ -1,0 +1,51 @@
+<script>
+	var url = window.location.protocol + "//" + window.location.host;
+	
+	$("#btnHome").click(function(){
+		window.location =  url + "/blockchain/index.html#/";
+		//console.log(url + "/blockchian/index.html#/")
+        return false;
+	});
+	
+	$("#btnLogIn").click(function(){
+		window.location =  url + "/blockchain/views/LoginPage.html";
+        return false;
+	});
+	
+	
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<img id="logo" src="logo01.png" />
+  	<a class="navbar-brand" href="">Title</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+	     	<li class="nav-item active">
+	     		<a id="btnHome" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	     	</li>
+	     	<li class="nav-item">
+	        	<a class="nav-link" href="#">temp</a>
+	      	</li>
+	      	<li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          	Dropdown
+	        	</a>
+	        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          	<a class="dropdown-item" href="#">Action</a>
+		          	<a class="dropdown-item" href="#">Another action</a>
+		          	<div class="dropdown-divider"></div>
+		          	<a class="dropdown-item" href="#">Something else here</a>
+	        	</div>
+	      	</li>
+	      	<li class="nav-item">
+	        	<a class="nav-link disabled" href="#">Disabled</a>
+     		</li>
+    	</ul>
+    	<form class="form-inline my-2 my-lg-0">
+      		<button id="btnLogIn" class="btn btn-outline-info my-2 my-sm-0" type="submit">Log in</button>
+    	</form>
+  	</div>
+</nav>
